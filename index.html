@@ -16,10 +16,10 @@
 <link rel="apple-touch-icon" href="img/apple-touch-icon.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet" />
 <style>
 /* MiMotoYa — mimotoya.co
-   Títulos en Bricolage Grotesque; texto en Poppins, la letra de la app.
+   Todo en Poppins, la letra de la app: títulos en 700, texto en 400.
    El amarillo y el verde salen del motocarro. Un solo momento animado: el
    motocarro que entra al abrir la página. */
 :root {
@@ -30,6 +30,7 @@
   --verde: #00A86B;
   --verde-hondo: #007C50;
   --amarillo: #F7C21B;
+  --verde-claro: #5FD3A3; /* el "Ya" de la marca sobre fondo oscuro */
   --tinta: #10302A;
   --gris: #52625C;
   --linea: #D6DED6;
@@ -43,7 +44,7 @@ body {
 }
 img { max-width: 100%; height: auto; display: block; }
 a { color: inherit; }
-h1, h2, h3 { font-family: "Bricolage Grotesque", "Poppins", sans-serif; margin: 0; letter-spacing: -0.03em; line-height: 1.02; }
+h1, h2, h3 { font-family: "Poppins", sans-serif; font-weight: 700; margin: 0; letter-spacing: -0.025em; line-height: 1.08; }
 p { margin: 0; }
 .envoltura { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
 :focus-visible { outline: 3px solid var(--amarillo); outline-offset: 3px; border-radius: 6px; }
@@ -52,7 +53,7 @@ p { margin: 0; }
 .barra { position: sticky; top: 0; z-index: 20; background: color-mix(in srgb, var(--hoja) 88%, transparent); backdrop-filter: blur(10px); border-bottom: 1px solid transparent; }
 .barra.con-borde { border-bottom-color: var(--linea); }
 .barra .envoltura { display: flex; align-items: center; gap: 28px; height: 68px; }
-.logo { display: flex; align-items: center; gap: 10px; text-decoration: none; font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: 22px; letter-spacing: -0.04em; }
+.logo { display: flex; align-items: center; gap: 10px; text-decoration: none; font-family: "Poppins", sans-serif; font-weight: 700; font-size: 22px; letter-spacing: -0.04em; }
 .logo img { width: 42px; height: 42px !important; object-fit: contain; }
 .logo .txt { color: inherit; }
 .logo .txt span { color: var(--verde); }
@@ -70,7 +71,7 @@ p { margin: 0; }
 /* Hero */
 .hero { padding: 56px 0 40px; overflow: hidden; }
 .hero .envoltura { display: grid; grid-template-columns: 1.05fr 1fr; gap: 40px; align-items: center; }
-.hero h1 { font-size: clamp(44px, 5.6vw, 78px); font-weight: 800; }
+.hero h1 { font-size: clamp(44px, 5.6vw, 78px); font-weight: 700; }
 .hero .bajada { font-size: 20px; color: var(--gris); margin-top: 22px; max-width: 30ch; }
 .tiendas { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 30px; }
 .tienda {
@@ -97,11 +98,11 @@ p { margin: 0; }
   box-shadow: 0 16px 34px -18px rgba(16,48,42,.4); border: 1px solid var(--linea);
 }
 .precio-flota small { display: block; color: var(--gris); font-size: 13px; }
-.precio-flota b { font-family: "Bricolage Grotesque", sans-serif; font-size: 36px; letter-spacing: -0.03em; line-height: 1; }
+.precio-flota b { font-family: "Poppins", sans-serif; font-size: 36px; letter-spacing: -0.03em; line-height: 1; }
 
 /* Secciones */
 section { padding: 88px 0; }
-.titulo-seccion { font-size: clamp(34px, 4.4vw, 56px); font-weight: 800; max-width: 18ch; }
+.titulo-seccion { font-size: clamp(34px, 4.4vw, 56px); font-weight: 700; max-width: 18ch; }
 .intro-seccion { color: var(--gris); font-size: 18px; margin-top: 14px; max-width: 54ch; }
 
 /* Cómo funciona: tres pasos con su pantalla */
@@ -109,7 +110,7 @@ section { padding: 88px 0; }
 .paso { display: flex; flex-direction: column; gap: 16px; }
 .paso .pantalla { background: var(--blanco); border-radius: var(--radio); padding: 22px 22px 0; border: 1px solid var(--linea); overflow: hidden; height: 380px; }
 .paso .pantalla img { border-radius: 22px 22px 0 0; box-shadow: 0 0 0 8px #0E1412; margin: 8px auto 0; width: 78%; }
-.paso .n { font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: 15px; color: var(--verde-hondo); }
+.paso .n { font-family: "Poppins", sans-serif; font-weight: 700; font-size: 15px; color: var(--verde-hondo); }
 .paso h3 { font-size: 28px; font-weight: 700; }
 .paso p { color: var(--gris); max-width: 34ch; }
 
@@ -121,7 +122,7 @@ section { padding: 88px 0; }
 .zona { background: var(--bosque-2); border-radius: var(--radio); padding: 28px; }
 .zona h3 { font-size: 26px; display: flex; align-items: center; gap: 12px; }
 .zona h3 img { width: 54px; }
-.zona .precio-zona { font-family: "Bricolage Grotesque", sans-serif; font-size: 72px; font-weight: 800; letter-spacing: -0.04em; color: var(--amarillo); line-height: 1; margin: 22px 0 6px; }
+.zona .precio-zona { font-family: "Poppins", sans-serif; font-size: 72px; font-weight: 700; letter-spacing: -0.04em; color: var(--amarillo); line-height: 1; margin: 22px 0 6px; }
 .zona .nota { color: #A9C2BA; font-size: 15px; }
 .lugares { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-top: 26px; }
 .lugar { background: rgba(255,255,255,.06); border-radius: 16px; padding: 10px 8px 12px; text-align: center; font-size: 13px; line-height: 1.25; color: #DDE9E4; }
@@ -129,14 +130,14 @@ section { padding: 88px 0; }
 .ruta { list-style: none; margin: 18px 0 0; padding: 0; }
 .ruta li { display: flex; align-items: baseline; gap: 12px; padding: 13px 0; border-top: 1px solid rgba(255,255,255,.12); font-size: 17px; }
 .ruta li::after { content: ""; order: 2; flex: 1; border-bottom: 2px dotted rgba(255,255,255,.22); transform: translateY(-4px); }
-.ruta li b { order: 3; font-family: "Bricolage Grotesque", sans-serif; font-size: 24px; font-weight: 700; color: var(--amarillo); letter-spacing: -0.02em; white-space: nowrap; }
+.ruta li b { order: 3; font-family: "Poppins", sans-serif; font-size: 24px; font-weight: 700; color: var(--amarillo); letter-spacing: -0.02em; white-space: nowrap; }
 .tablero .letra-chica { color: #8FAAA1; font-size: 14px; margin-top: 26px; max-width: 80ch; }
 
 /* Funciones alternadas */
 .funcion { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; padding: 40px 0; }
 .funcion + .funcion { border-top: 1px solid var(--linea); }
 .funcion:nth-of-type(even) .visual { order: -1; }
-.funcion h3 { font-size: clamp(30px, 3.4vw, 44px); font-weight: 800; max-width: 16ch; }
+.funcion h3 { font-size: clamp(30px, 3.4vw, 44px); font-weight: 700; max-width: 16ch; }
 .funcion p { color: var(--gris); margin-top: 14px; max-width: 46ch; font-size: 18px; }
 .funcion ul { margin: 18px 0 0; padding: 0; list-style: none; display: grid; gap: 8px; }
 .funcion li { padding-left: 26px; position: relative; }
@@ -146,16 +147,16 @@ section { padding: 88px 0; }
 .visual.voz { background: var(--amarillo); border-color: transparent; }
 .onda { display: flex; gap: 7px; align-items: center; height: 120px; }
 .onda i { width: 12px; border-radius: 8px; background: var(--bosque); }
-.visual .dicho { font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; font-size: 30px; text-align: center; max-width: 16ch; line-height: 1.1; margin-top: 18px; }
+.visual .dicho { font-family: "Poppins", sans-serif; font-weight: 700; font-size: 30px; text-align: center; max-width: 16ch; line-height: 1.1; margin-top: 18px; }
 .billetes { display: flex; gap: 14px; align-items: center; }
-.billete { width: 170px; height: 90px; border-radius: 10px; background: #2E9E5B; color: #fff; display: grid; place-items: center; font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: 34px; transform: rotate(-6deg); box-shadow: 0 14px 24px -14px rgba(0,0,0,.4); }
-.moneda { width: 76px; height: 76px; border-radius: 50%; background: #D9A93A; display: grid; place-items: center; font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: 22px; color: var(--bosque); box-shadow: inset 0 0 0 5px rgba(0,0,0,.08); }
+.billete { width: 170px; height: 90px; border-radius: 10px; background: #2E9E5B; color: #fff; display: grid; place-items: center; font-family: "Poppins", sans-serif; font-weight: 700; font-size: 34px; transform: rotate(-6deg); box-shadow: 0 14px 24px -14px rgba(0,0,0,.4); }
+.moneda { width: 76px; height: 76px; border-radius: 50%; background: #D9A93A; display: grid; place-items: center; font-family: "Poppins", sans-serif; font-weight: 700; font-size: 22px; color: var(--bosque); box-shadow: inset 0 0 0 5px rgba(0,0,0,.08); }
 
 /* Conductores */
 .conductores { background: var(--blanco); border-top: 1px solid var(--linea); border-bottom: 1px solid var(--linea); }
 .conductores .envoltura { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
 .placa-grande {
-  font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: 74px; letter-spacing: .04em;
+  font-family: "Poppins", sans-serif; font-weight: 700; font-size: 74px; letter-spacing: .04em;
   background: var(--amarillo); border: 5px solid #111; border-radius: 16px; padding: 10px 26px; display: inline-block; line-height: 1.1;
 }
 .placa-grande small { display: block; font-size: 18px; letter-spacing: .3em; text-align: center; font-weight: 700; }
@@ -169,7 +170,7 @@ section { padding: 88px 0; }
 /* Dónde */
 .donde { display: grid; grid-template-columns: auto 1fr; gap: 36px; align-items: center; }
 .donde img { width: 220px; }
-.donde .pueblo { font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: clamp(48px, 7vw, 96px); letter-spacing: -0.05em; line-height: .95; }
+.donde .pueblo { font-family: "Poppins", sans-serif; font-weight: 700; font-size: clamp(48px, 7vw, 96px); letter-spacing: -0.05em; line-height: .95; }
 .donde .pueblo span { display: block; font-size: .32em; letter-spacing: -0.01em; color: var(--gris); font-weight: 600; margin-top: 10px; }
 .donde p { color: var(--gris); margin-top: 18px; max-width: 52ch; }
 
@@ -186,8 +187,8 @@ footer { background: var(--bosque); color: #CFE0DA; padding: 56px 0 30px; font-s
 .pie h4 { margin: 0 0 12px; font-size: 15px; color: #fff; font-weight: 600; }
 .pie a { display: block; text-decoration: none; padding: 3px 0; color: #CFE0DA; }
 .pie a:hover { color: #fff; text-decoration: underline; }
-.pie .marca-pie { font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: 26px; color: #fff; letter-spacing: -0.04em; }
-.pie .marca-pie span { color: var(--amarillo); }
+.pie .marca-pie { font-family: "Poppins", sans-serif; font-weight: 700; font-size: 26px; color: #fff; letter-spacing: -0.04em; }
+.pie .marca-pie span { color: var(--verde-claro); }
 .pie p { margin-top: 10px; color: #A9C2BA; max-width: 34ch; }
 .legal { margin-top: 44px; padding-top: 22px; border-top: 1px solid var(--bosque-2); display: flex; gap: 18px; flex-wrap: wrap; align-items: center; justify-content: space-between; color: #8FAAA1; font-size: 13.5px; }
 .legal .hecho { display: flex; align-items: center; gap: 10px; }
