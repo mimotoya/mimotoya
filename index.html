@@ -1,52 +1,454 @@
 <!doctype html>
 <html lang="es-CO">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Inicio — MiMotoYa</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>MiMotoYa · El motocarro de tu municipio</title>
+<meta name="description" content="Pide motocarro en Pácora, Caldas. Ves la tarifa oficial antes de pedir, sabes quién te recoge y pagas en efectivo al llegar. Con los conductores de MOCHIPAS." />
+<link rel="canonical" href="https://mimotoya.co/" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://mimotoya.co/" />
+<meta property="og:title" content="MiMotoYa · El motocarro de tu municipio" />
+<meta property="og:description" content="Pide motocarro en Pácora con el precio claro antes de pedir. Pagas en efectivo al llegar." />
+<meta property="og:image" content="https://mimotoya.co/img/og.jpg" />
+<meta name="theme-color" content="#10302A" />
+<link rel="icon" href="img/favicon.png" />
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet" />
 <style>
-:root{--papel:#F7F8F3;--bosque:#123C36;--verde:#008856;--suave:#E2F5EC;--texto:#123C36;--apagado:#5A6B66;--linea:rgba(18,60,54,.12)}
-*{box-sizing:border-box}
-body{margin:0;background:var(--papel);color:var(--texto);font:17px/1.6 "Poppins",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
-header{background:var(--bosque);color:#fff;padding:18px 16px}
-header a{color:#fff;text-decoration:none;font-weight:600;font-size:20px}
-header span{color:#5FD3A3}
-main{max-width:760px;margin:0 auto;padding:24px 16px 64px}
-h1{font-size:28px;line-height:1.25;margin:8px 0 4px}
-h2{font-size:21px;margin-top:32px}
-h3{font-size:18px;margin-top:24px}
-a{color:var(--verde)}
-table{border-collapse:collapse;width:100%;margin:12px 0;font-size:15px;display:block;overflow-x:auto}
-th,td{border:1px solid var(--linea);padding:8px 10px;text-align:left;vertical-align:top}
-th{background:var(--suave)}
-blockquote{margin:16px 0;padding:10px 16px;background:var(--suave);border-left:4px solid var(--verde);border-radius:6px}
-hr{border:0;border-top:1px solid var(--linea);margin:28px 0}
-.pasos{background:#fff;border:1px solid var(--linea);border-radius:14px;padding:6px 20px}
-.boton{display:inline-block;background:var(--verde);color:#fff;padding:12px 20px;border-radius:999px;text-decoration:none;font-weight:600;margin:6px 8px 6px 0}
-footer{max-width:760px;margin:0 auto;padding:0 16px 40px;color:var(--apagado);font-size:14px}
+/* MiMotoYa — mimotoya.co
+   Títulos en Bricolage Grotesque; texto en Poppins, la letra de la app.
+   El amarillo y el verde salen del motocarro. Un solo momento animado: el
+   motocarro que entra al abrir la página. */
+:root {
+  --hoja: #F3F6F0;
+  --blanco: #FFFFFF;
+  --bosque: #10302A;
+  --bosque-2: #1A4A41;
+  --verde: #00A86B;
+  --verde-hondo: #007C50;
+  --amarillo: #F7C21B;
+  --tinta: #10302A;
+  --gris: #52625C;
+  --linea: #D6DED6;
+  --radio: 22px;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0; background: var(--hoja); color: var(--tinta);
+  font: 400 17px/1.6 "Poppins", system-ui, sans-serif; -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; height: auto; display: block; }
+a { color: inherit; }
+h1, h2, h3 { font-family: "Bricolage Grotesque", "Poppins", sans-serif; margin: 0; letter-spacing: -0.03em; line-height: 1.02; }
+p { margin: 0; }
+.envoltura { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+:focus-visible { outline: 3px solid var(--amarillo); outline-offset: 3px; border-radius: 6px; }
+
+/* Barra */
+.barra { position: sticky; top: 0; z-index: 20; background: color-mix(in srgb, var(--hoja) 88%, transparent); backdrop-filter: blur(10px); border-bottom: 1px solid transparent; }
+.barra.con-borde { border-bottom-color: var(--linea); }
+.barra .envoltura { display: flex; align-items: center; gap: 28px; height: 68px; }
+.logo { display: flex; align-items: center; gap: 10px; text-decoration: none; font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: 22px; letter-spacing: -0.04em; }
+.logo img { width: 42px; height: 42px !important; object-fit: contain; }
+.logo .txt { color: inherit; }
+.logo .txt span { color: var(--verde); }
+.menu { display: flex; gap: 22px; font-size: 15px; font-weight: 500; }
+.menu a { text-decoration: none; color: var(--gris); }
+.menu a:hover { color: var(--tinta); }
+.barra .descargar { margin-left: auto; }
+.boton {
+  display: inline-flex; align-items: center; gap: 10px; text-decoration: none;
+  background: var(--bosque); color: #fff; border-radius: 999px; padding: 11px 20px;
+  font-weight: 600; font-size: 15px; white-space: nowrap; border: 0;
+}
+.boton:hover { background: var(--bosque-2); }
+
+/* Hero */
+.hero { padding: 56px 0 40px; overflow: hidden; }
+.hero .envoltura { display: grid; grid-template-columns: 1.05fr 1fr; gap: 40px; align-items: center; }
+.hero h1 { font-size: clamp(44px, 5.6vw, 78px); font-weight: 800; }
+.hero .bajada { font-size: 20px; color: var(--gris); margin-top: 22px; max-width: 30ch; }
+.tiendas { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 30px; }
+.tienda {
+  display: inline-flex; align-items: center; gap: 12px; text-decoration: none;
+  background: #000; color: #fff; border-radius: 14px; padding: 9px 18px 9px 14px; min-width: 186px;
+}
+.tienda svg { width: 26px; height: 26px; flex: none; }
+.tienda small { display: block; font-size: 11px; line-height: 1.1; opacity: .8; }
+.tienda b { display: block; font-size: 18px; line-height: 1.15; font-weight: 600; letter-spacing: -0.01em; }
+.aviso-prueba { margin-top: 16px; font-size: 14px; color: var(--gris); display: flex; gap: 8px; align-items: baseline; }
+.aviso-prueba::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--amarillo); flex: none; transform: translateY(-1px); }
+
+.escena { position: relative; height: 620px; }
+.escena .sol { position: absolute; width: 560px; height: 560px; border-radius: 50%; background: #DCEFE3; right: -40px; top: 10px; }
+.telefono {
+  position: absolute; right: 60px; top: 0; width: 290px; border-radius: 44px; padding: 10px;
+  background: #0E1412; box-shadow: 0 30px 60px -24px rgba(16,48,42,.45);
+}
+.telefono img { border-radius: 35px; width: 100%; }
+.escena .moto { position: absolute; width: 330px; left: -10px; bottom: 6px; filter: drop-shadow(0 22px 18px rgba(16,48,42,.22)); animation: llegar 1.1s cubic-bezier(.2,.8,.2,1) .15s both; }
+@keyframes llegar { from { transform: translateX(-140%); } to { transform: none; } }
+.escena .precio-flota {
+  position: absolute; left: 80px; top: 120px; background: var(--blanco); border-radius: 16px; padding: 14px 18px;
+  box-shadow: 0 16px 34px -18px rgba(16,48,42,.4); border: 1px solid var(--linea);
+}
+.precio-flota small { display: block; color: var(--gris); font-size: 13px; }
+.precio-flota b { font-family: "Bricolage Grotesque", sans-serif; font-size: 36px; letter-spacing: -0.03em; line-height: 1; }
+
+/* Secciones */
+section { padding: 88px 0; }
+.titulo-seccion { font-size: clamp(34px, 4.4vw, 56px); font-weight: 800; max-width: 18ch; }
+.intro-seccion { color: var(--gris); font-size: 18px; margin-top: 14px; max-width: 54ch; }
+
+/* Cómo funciona: tres pasos con su pantalla */
+.pasos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 48px; }
+.paso { display: flex; flex-direction: column; gap: 16px; }
+.paso .pantalla { background: var(--blanco); border-radius: var(--radio); padding: 22px 22px 0; border: 1px solid var(--linea); overflow: hidden; height: 380px; }
+.paso .pantalla img { border-radius: 22px 22px 0 0; box-shadow: 0 0 0 8px #0E1412; margin: 8px auto 0; width: 78%; }
+.paso .n { font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: 15px; color: var(--verde-hondo); }
+.paso h3 { font-size: 28px; font-weight: 700; }
+.paso p { color: var(--gris); max-width: 34ch; }
+
+/* Tablero de tarifas */
+.tablero { background: var(--bosque); color: #fff; border-radius: 36px; margin: 0 16px; padding: 80px 0; }
+.tablero .titulo-seccion { color: #fff; }
+.tablero .intro-seccion { color: #A9C2BA; }
+.tablero-grid { display: grid; grid-template-columns: 1.15fr 1fr; gap: 24px; margin-top: 44px; }
+.zona { background: var(--bosque-2); border-radius: var(--radio); padding: 28px; }
+.zona h3 { font-size: 26px; display: flex; align-items: center; gap: 12px; }
+.zona h3 img { width: 54px; }
+.zona .precio-zona { font-family: "Bricolage Grotesque", sans-serif; font-size: 72px; font-weight: 800; letter-spacing: -0.04em; color: var(--amarillo); line-height: 1; margin: 22px 0 6px; }
+.zona .nota { color: #A9C2BA; font-size: 15px; }
+.lugares { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-top: 26px; }
+.lugar { background: rgba(255,255,255,.06); border-radius: 16px; padding: 10px 8px 12px; text-align: center; font-size: 13px; line-height: 1.25; color: #DDE9E4; }
+.lugar img { width: 72px; height: 72px; margin: 0 auto 6px; object-fit: contain; }
+.ruta { list-style: none; margin: 18px 0 0; padding: 0; }
+.ruta li { display: flex; align-items: baseline; gap: 12px; padding: 13px 0; border-top: 1px solid rgba(255,255,255,.12); font-size: 17px; }
+.ruta li::after { content: ""; order: 2; flex: 1; border-bottom: 2px dotted rgba(255,255,255,.22); transform: translateY(-4px); }
+.ruta li b { order: 3; font-family: "Bricolage Grotesque", sans-serif; font-size: 24px; font-weight: 700; color: var(--amarillo); letter-spacing: -0.02em; white-space: nowrap; }
+.tablero .letra-chica { color: #8FAAA1; font-size: 14px; margin-top: 26px; max-width: 80ch; }
+
+/* Funciones alternadas */
+.funcion { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; padding: 40px 0; }
+.funcion + .funcion { border-top: 1px solid var(--linea); }
+.funcion:nth-of-type(even) .visual { order: -1; }
+.funcion h3 { font-size: clamp(30px, 3.4vw, 44px); font-weight: 800; max-width: 16ch; }
+.funcion p { color: var(--gris); margin-top: 14px; max-width: 46ch; font-size: 18px; }
+.funcion ul { margin: 18px 0 0; padding: 0; list-style: none; display: grid; gap: 8px; }
+.funcion li { padding-left: 26px; position: relative; }
+.funcion li::before { content: ""; position: absolute; left: 0; top: 9px; width: 12px; height: 12px; border-radius: 4px; background: var(--verde); }
+.visual { background: var(--blanco); border: 1px solid var(--linea); border-radius: 30px; min-height: 420px; display: grid; place-items: center; padding: 30px; position: relative; overflow: hidden; }
+.visual .mini { width: 230px; border-radius: 32px; box-shadow: 0 0 0 9px #0E1412, 0 30px 50px -26px rgba(16,48,42,.5); }
+.visual.voz { background: var(--amarillo); border-color: transparent; }
+.onda { display: flex; gap: 7px; align-items: center; height: 120px; }
+.onda i { width: 12px; border-radius: 8px; background: var(--bosque); }
+.visual .dicho { font-family: "Bricolage Grotesque", sans-serif; font-weight: 700; font-size: 30px; text-align: center; max-width: 16ch; line-height: 1.1; margin-top: 18px; }
+.billetes { display: flex; gap: 14px; align-items: center; }
+.billete { width: 170px; height: 90px; border-radius: 10px; background: #2E9E5B; color: #fff; display: grid; place-items: center; font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: 34px; transform: rotate(-6deg); box-shadow: 0 14px 24px -14px rgba(0,0,0,.4); }
+.moneda { width: 76px; height: 76px; border-radius: 50%; background: #D9A93A; display: grid; place-items: center; font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: 22px; color: var(--bosque); box-shadow: inset 0 0 0 5px rgba(0,0,0,.08); }
+
+/* Conductores */
+.conductores { background: var(--blanco); border-top: 1px solid var(--linea); border-bottom: 1px solid var(--linea); }
+.conductores .envoltura { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center; }
+.placa-grande {
+  font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: 74px; letter-spacing: .04em;
+  background: var(--amarillo); border: 5px solid #111; border-radius: 16px; padding: 10px 26px; display: inline-block; line-height: 1.1;
+}
+.placa-grande small { display: block; font-size: 18px; letter-spacing: .3em; text-align: center; font-weight: 700; }
+.conductores .lista { margin-top: 22px; display: grid; gap: 14px; }
+.conductores .lista div { display: grid; grid-template-columns: 36px 1fr; gap: 14px; align-items: start; }
+.conductores .lista b { display: block; font-weight: 600; }
+.conductores .lista span { color: var(--gris); font-size: 16px; }
+.icono-redondo { width: 36px; height: 36px; border-radius: 10px; background: var(--hoja); display: grid; place-items: center; color: var(--verde-hondo); }
+.icono-redondo svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+/* Dónde */
+.donde { display: grid; grid-template-columns: auto 1fr; gap: 36px; align-items: center; }
+.donde img { width: 220px; }
+.donde .pueblo { font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: clamp(48px, 7vw, 96px); letter-spacing: -0.05em; line-height: .95; }
+.donde .pueblo span { display: block; font-size: .32em; letter-spacing: -0.01em; color: var(--gris); font-weight: 600; margin-top: 10px; }
+.donde p { color: var(--gris); margin-top: 18px; max-width: 52ch; }
+
+/* Cierre */
+.cierre { text-align: center; padding: 96px 0 104px; }
+.cierre img.moto { width: 260px; margin: 0 auto 10px; }
+.cierre .titulo-seccion { margin: 0 auto; max-width: 16ch; }
+.cierre .intro-seccion { margin: 14px auto 0; }
+.cierre .tiendas, .cierre .aviso-prueba { justify-content: center; }
+
+/* Pie */
+footer { background: var(--bosque); color: #CFE0DA; padding: 56px 0 30px; font-size: 15px; }
+.pie { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 32px; }
+.pie h4 { margin: 0 0 12px; font-size: 15px; color: #fff; font-weight: 600; }
+.pie a { display: block; text-decoration: none; padding: 3px 0; color: #CFE0DA; }
+.pie a:hover { color: #fff; text-decoration: underline; }
+.pie .marca-pie { font-family: "Bricolage Grotesque", sans-serif; font-weight: 800; font-size: 26px; color: #fff; letter-spacing: -0.04em; }
+.pie .marca-pie span { color: var(--amarillo); }
+.pie p { margin-top: 10px; color: #A9C2BA; max-width: 34ch; }
+.legal { margin-top: 44px; padding-top: 22px; border-top: 1px solid var(--bosque-2); display: flex; gap: 18px; flex-wrap: wrap; align-items: center; justify-content: space-between; color: #8FAAA1; font-size: 13.5px; }
+.legal .hecho { display: flex; align-items: center; gap: 10px; }
+.legal .hecho img { height: 16px; width: auto; filter: brightness(0) invert(1); opacity: .75; }
+
+/* Angosto */
+@media (max-width: 980px) {
+  .menu { display: none; }
+  .hero .envoltura, .tablero-grid, .funcion, .conductores .envoltura { grid-template-columns: 1fr; }
+  .funcion:nth-of-type(even) .visual { order: 0; }
+  .escena { height: 540px; max-width: 520px; width: 100%; margin: 0 auto; }
+  .pasos { grid-template-columns: 1fr; }
+  .paso .pantalla { height: 340px; }
+  .pie { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 560px) {
+  .envoltura { padding: 0 18px; }
+  .hero { padding-top: 28px; }
+  .escena { height: 470px; }
+  .escena .sol { width: 380px; height: 380px; right: -60px; }
+  .telefono { width: 230px; right: 0; border-radius: 36px; padding: 8px; }
+  .telefono img { border-radius: 29px; }
+  .escena .moto { width: 230px; left: -14px; }
+  .escena .precio-flota { left: 0; top: 70px; }
+  section { padding: 64px 0; }
+  .tablero { margin: 0 8px; border-radius: 26px; padding: 56px 0; }
+  .lugares { grid-template-columns: repeat(3, 1fr); }
+  .zona .precio-zona { font-size: 58px; }
+  .donde { grid-template-columns: 1fr; }
+  .donde img { width: 150px; }
+  .placa-grande { font-size: 50px; }
+  .pie { grid-template-columns: 1fr; }
+  .barra .descargar { padding: 9px 14px; font-size: 14px; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .escena .moto { animation: none; } }
 </style>
 </head>
 <body>
-<header><a href="index.html">MiMoto<span>Ya</span></a></header>
+
+<header class="barra" id="barra">
+  <div class="envoltura">
+    <a class="logo" href="/" aria-label="MiMotoYa, inicio"><img src="img/motocarro.webp" alt="" width="42" height="42" /><span class="txt">MiMoto<span>Ya</span></span></a>
+    <nav class="menu" aria-label="Secciones">
+      <a href="#como-funciona">Cómo funciona</a>
+      <a href="#tarifas">Tarifas</a>
+      <a href="#conductores">Para conductores</a>
+      <a href="#donde">Dónde funciona</a>
+    </nav>
+    <a class="boton descargar" href="#descargar">Descargar la app</a>
+  </div>
+</header>
+
 <main>
+  <section class="hero" aria-labelledby="titulo">
+    <div class="envoltura">
+      <div>
+        <h1 id="titulo">Pide tu motocarro. Sabes cuánto cuesta antes de subirte.</h1>
+        <p class="bajada">MiMotoYa es la app para pedir motocarro en Pácora con los conductores de MOCHIPAS. Tarifa oficial, sin regatear, y pagas en efectivo al llegar.</p>
+        <div class="tiendas" id="descargar-arriba">
+          <a class="tienda" href="https://apps.apple.com/co/app/id6823481945" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16.37 12.6c-.02-2.3 1.88-3.4 1.96-3.46-1.07-1.56-2.73-1.78-3.32-1.8-1.41-.14-2.76.83-3.48.83-.72 0-1.82-.81-3-.79-1.54.02-2.97.9-3.76 2.28-1.61 2.79-.41 6.91 1.15 9.17.77 1.1 1.68 2.34 2.87 2.3 1.15-.05 1.59-.75 2.98-.75 1.39 0 1.78.75 3 .72 1.24-.02 2.02-1.12 2.78-2.23.88-1.28 1.24-2.52 1.26-2.58-.03-.01-2.41-.93-2.44-3.69zM14.1 5.86c.63-.77 1.06-1.83.94-2.89-.91.04-2.02.61-2.67 1.37-.58.67-1.1 1.76-.96 2.8 1.02.08 2.06-.52 2.69-1.28z"/></svg>
+            <span><small>Descárgala en el</small><b>App Store</b></span>
+          </a>
+          <a class="tienda" href="https://play.google.com/store/apps/details?id=co.mimotoya.app" rel="noopener">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#34A853" d="M3.6 2.2 13.4 12l-9.8 9.8c-.36-.2-.6-.6-.6-1.1V3.3c0-.5.24-.9.6-1.1z"/><path fill="#FBBC04" d="m17 8.4-3.6 3.6L17 15.6l4-2.3c.8-.46.8-1.6 0-2.06z"/><path fill="#4285F4" d="M3.6 21.8 13.4 12l3.6 3.6-11.3 6.4c-.75.43-1.6.26-2.1-.2z"/><path fill="#EA4335" d="M3.6 2.2c.5-.46 1.35-.63 2.1-.2L17 8.4 13.4 12z"/></svg>
+            <span><small>Disponible en</small><b>Google Play</b></span>
+          </a>
+        </div>
+        <p class="aviso-prueba">Estamos probándola con los conductores de MOCHIPAS. Muy pronto, para todo Pácora.</p>
+      </div>
+      <div class="escena" aria-hidden="true">
+        <div class="sol"></div>
+        <div class="telefono"><img src="img/app-precio.webp" alt="" width="738" height="1600" /></div>
+        <div class="precio-flota"><small>Tarifa total</small><b>$ 2.600</b></div>
+        <img class="moto" src="img/motocarro.webp" alt="" width="720" height="720" />
+      </div>
+    </div>
+  </section>
 
-<h1>MiMotoYa</h1>
-<p><strong>El Motocarro de tu Municipio.</strong> MiMotoYa es la aplicación para pedir motocarro en
-Pácora, Caldas, con los conductores de la asociación MOCHIPAS. Ves el precio oficial antes de pedir,
-sabes quién te recoge y pagas en efectivo.</p>
-<ul>
-<li><a href="privacidad.html">Política de tratamiento de datos personales</a></li>
-<li><a href="terminos.html">Términos y condiciones de uso</a></li>
-<li><a href="eliminar-cuenta.html">Cómo borrar tu cuenta</a></li>
-</ul>
+  <section id="como-funciona" aria-labelledby="t-como">
+    <div class="envoltura">
+      <h2 class="titulo-seccion" id="t-como">Tres toques y va en camino.</h2>
+      <p class="intro-seccion">Sin llamar a la central, sin explicar dónde estás. La app sabe en qué parte del pueblo vas y te muestra los lugares por su nombre.</p>
+      <div class="pasos">
+        <article class="paso">
+          <div class="pantalla"><img src="img/app-zonas.webp" alt="Pantalla de MiMotoYa para elegir zona urbana o zona rural" loading="lazy" width="738" height="1600" /></div>
+          <span class="n">Paso 1</span>
+          <h3>Dices a dónde vas</h3>
+          <p>Zona urbana o vereda. Tocas el lugar por su nombre o lo marcas en el mapa.</p>
+        </article>
+        <article class="paso">
+          <div class="pantalla"><img src="img/app-precio.webp" alt="Pantalla con la tarifa total de 2.600 pesos antes de pedir" loading="lazy" width="738" height="1600" /></div>
+          <span class="n">Paso 2</span>
+          <h3>Ves el precio</h3>
+          <p>La tarifa total aparece antes de pedir. Si van dos o tres, también te dice cuánto queda.</p>
+        </article>
+        <article class="paso">
+          <div class="pantalla"><img src="img/app-buscando.webp" alt="Pantalla buscando conductor con el recorrido en el mapa de Pácora" loading="lazy" width="738" height="1600" /></div>
+          <span class="n">Paso 3</span>
+          <h3>Te recoge un motocarro cerca</h3>
+          <p>Avisamos al conductor más cercano. Ves su nombre, su placa y por dónde viene.</p>
+        </article>
+      </div>
+    </div>
+  </section>
 
+  <section class="tablero" id="tarifas" aria-labelledby="t-tarifas">
+    <div class="envoltura">
+      <h2 class="titulo-seccion" id="t-tarifas">El precio no se negocia.</h2>
+      <p class="intro-seccion">La app cobra la tarifa que fija la Alcaldía de Pácora. Ni más porque llueva, ni más porque sea de noche si el decreto no lo dice.</p>
+      <div class="tablero-grid">
+        <div class="zona">
+          <h3><img src="img/urbana.webp" alt="" width="54" height="54" />Dentro del pueblo</h3>
+          <div class="precio-zona">$ 2.600</div>
+          <p class="nota">Un solo precio para toda la zona urbana, por persona. Si van dos o tres, $ 5.000 en total.</p>
+          <div class="lugares">
+            <div class="lugar"><img src="img/hospital.webp" alt="" loading="lazy" />Hospital</div>
+            <div class="lugar"><img src="img/parque.webp" alt="" loading="lazy" />Parque principal</div>
+            <div class="lugar"><img src="img/polideportivo.webp" alt="" loading="lazy" />Polideportivo</div>
+            <div class="lugar"><img src="img/bomba.webp" alt="" loading="lazy" />La Bomba</div>
+            <div class="lugar"><img src="img/galeria_terminal.webp" alt="" loading="lazy" />Galería y terminal</div>
+          </div>
+        </div>
+        <div class="zona">
+          <h3><img src="img/rural.webp" alt="" width="54" height="54" />Hacia las veredas</h3>
+          <p class="nota" style="margin-top:12px">El precio depende de hasta dónde vayas en cada ruta. Un ejemplo, la ruta Las Coles:</p>
+          <ul class="ruta">
+            <li>Inpec / Julio Tejo <b>$ 3.100</b></li>
+            <li>La Margarita / AG Munera <b>$ 5.600</b></li>
+            <li>La María <b>$ 8.000</b></li>
+            <li>La Glostora <b>$ 9.600</b></li>
+            <li>Alto Las Coles <b>$ 14.300</b></li>
+          </ul>
+        </div>
+      </div>
+      <p class="letra-chica">Tarifas de un pasajero según el decreto municipal vigente. Si la Alcaldía expide un decreto nuevo, la app cobra la tarifa nueva desde el día en que empieza a regir.</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="t-pensada">
+    <div class="envoltura">
+      <h2 class="titulo-seccion" id="t-pensada">Hecha para un pueblo, no para una ciudad.</h2>
+      <div class="funcion">
+        <div>
+          <h3>Te habla en voz alta</h3>
+          <p>Cada pantalla se puede escuchar. Para quien no lee cómodo en el celular, o va con las manos ocupadas.</p>
+          <ul><li>Dice el precio y quién te recoge</li><li>Se apaga con un toque</li></ul>
+        </div>
+        <div class="visual voz" aria-hidden="true">
+          <div style="text-align:center">
+            <div class="onda">${'<i></i>'}</div>
+            <div class="dicho">“Viene Beto en el motocarro ABC 12D.”</div>
+          </div>
+        </div>
+      </div>
+      <div class="funcion">
+        <div>
+          <h3>Pagas en efectivo, como siempre</h3>
+          <p>No hay que meter tarjeta ni cuenta de banco. Le pagas al conductor al llegar, y la app te dice con qué billetes.</p>
+          <ul><li>Sin cobros escondidos</li><li>Sin tarjeta ni datos bancarios</li></ul>
+        </div>
+        <div class="visual" aria-hidden="true">
+          <div class="billetes"><div class="billete">$ 2.000</div><div class="moneda">500</div><div class="moneda" style="width:60px;height:60px;font-size:18px">100</div></div>
+        </div>
+      </div>
+      <div class="funcion">
+        <div>
+          <h3>Sabes con quién vas</h3>
+          <p>Antes de subirte ves el nombre del conductor, su placa y su número de móvil de MOCHIPAS.</p>
+          <ul><li>Comparte tu viaje por WhatsApp con quien quieras</li><li>Botón de ayuda que avisa a la central</li></ul>
+        </div>
+        <div class="visual" aria-hidden="true"><img class="mini" src="img/app-urbana.webp" alt="" loading="lazy" width="738" height="1600" /></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="conductores" id="conductores" aria-labelledby="t-cond">
+    <div class="envoltura">
+      <div style="text-align:center"><div class="placa-grande" aria-hidden="true">MOC 001<small>PÁCORA</small></div></div>
+      <div>
+        <h2 class="titulo-seccion" id="t-cond">¿Manejas motocarro en MOCHIPAS?</h2>
+        <p class="intro-seccion">Te registras desde la misma app y la central te aprueba. Recibes los pedidos de tu zona y decides cuáles tomas.</p>
+        <div class="lista">
+          <div><span class="icono-redondo"><svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg></span><p><b>Registro con tus papeles</b><span>Cédula, licencia, SOAT y placa. Sin pagar nada por trabajar.</span></p></div>
+          <div><span class="icono-redondo"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span><p><b>Pedidos cerca de ti</b><span>La oferta llega al conductor más cercano. Si no la tomas, pasa al siguiente.</span></p></div>
+          <div><span class="icono-redondo"><svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></span><p><b>Tus viajes, día por día</b><span>Ves lo que hiciste hoy, esta semana y este mes.</span></p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="donde" aria-labelledby="t-donde">
+    <div class="envoltura donde">
+      <img src="img/pacora.webp" alt="Rama de café, símbolo de Pácora" loading="lazy" width="300" height="300" />
+      <div>
+        <h2 class="pueblo" id="t-donde">Pácora<span>Caldas, Colombia</span></h2>
+        <p>MiMotoYa funciona hoy en Pácora, con los motocarros de la Sociedad Transportadora Las Motochivas de Pácora (MOCHIPAS). Vamos municipio por municipio: en cada uno cargamos las tarifas oficiales antes de abrir el servicio.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cierre" id="descargar" aria-labelledby="t-cierre">
+    <div class="envoltura">
+      <img class="moto" src="img/motocarro.webp" alt="" loading="lazy" width="720" height="720" />
+      <h2 class="titulo-seccion" id="t-cierre">Tu próximo viaje, con el precio claro.</h2>
+      <p class="intro-seccion">Gratis en iPhone y Android.</p>
+      <div class="tiendas">
+        <a class="tienda" href="https://apps.apple.com/co/app/id6823481945" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16.37 12.6c-.02-2.3 1.88-3.4 1.96-3.46-1.07-1.56-2.73-1.78-3.32-1.8-1.41-.14-2.76.83-3.48.83-.72 0-1.82-.81-3-.79-1.54.02-2.97.9-3.76 2.28-1.61 2.79-.41 6.91 1.15 9.17.77 1.1 1.68 2.34 2.87 2.3 1.15-.05 1.59-.75 2.98-.75 1.39 0 1.78.75 3 .72 1.24-.02 2.02-1.12 2.78-2.23.88-1.28 1.24-2.52 1.26-2.58-.03-.01-2.41-.93-2.44-3.69zM14.1 5.86c.63-.77 1.06-1.83.94-2.89-.91.04-2.02.61-2.67 1.37-.58.67-1.1 1.76-.96 2.8 1.02.08 2.06-.52 2.69-1.28z"/></svg>
+          <span><small>Descárgala en el</small><b>App Store</b></span>
+        </a>
+        <a class="tienda" href="https://play.google.com/store/apps/details?id=co.mimotoya.app" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#34A853" d="M3.6 2.2 13.4 12l-9.8 9.8c-.36-.2-.6-.6-.6-1.1V3.3c0-.5.24-.9.6-1.1z"/><path fill="#FBBC04" d="m17 8.4-3.6 3.6L17 15.6l4-2.3c.8-.46.8-1.6 0-2.06z"/><path fill="#4285F4" d="M3.6 21.8 13.4 12l3.6 3.6-11.3 6.4c-.75.43-1.6.26-2.1-.2z"/><path fill="#EA4335" d="M3.6 2.2c.5-.46 1.35-.63 2.1-.2L17 8.4 13.4 12z"/></svg>
+          <span><small>Disponible en</small><b>Google Play</b></span>
+        </a>
+      </div>
+      <p class="aviso-prueba">Estamos probándola con los conductores de MOCHIPAS. Muy pronto, para todo Pácora.</p>
+    </div>
+  </section>
 </main>
+
 <footer>
-MiMotoYa · Sociedad Transportadora Las Motochivas de Pácora S.A.S. (MOCHIPAS S.A.S.) ·
-<a href="privacidad.html">Privacidad</a> · <a href="terminos.html">Términos</a> ·
-<a href="eliminar-cuenta.html">Borrar mi cuenta</a>
+  <div class="envoltura">
+    <div class="pie">
+      <div>
+        <div class="marca-pie">MiMoto<span>Ya</span></div>
+        <p>El motocarro de tu municipio. Una app de MOCHIPAS S.A.S. para Pácora, Caldas.</p>
+      </div>
+      <div>
+        <h4>Ayuda</h4>
+        <a href="https://wa.me/573124747883">WhatsApp 312 474 7883</a>
+        <a href="mailto:motochivasdepacora@gmail.com">motochivasdepacora@gmail.com</a>
+        <a href="/politicas/eliminar-cuenta">Borrar mi cuenta</a>
+      </div>
+      <div>
+        <h4>Legal</h4>
+        <a href="/politicas/privacidad">Tratamiento de datos</a>
+        <a href="/politicas/terminos">Términos y condiciones</a>
+        <a href="/politicas/">Todas las políticas</a>
+      </div>
+      <div>
+        <h4>Descargar</h4>
+        <a href="https://apps.apple.com/co/app/id6823481945">App Store</a>
+        <a href="https://play.google.com/store/apps/details?id=co.mimotoya.app">Google Play</a>
+      </div>
+    </div>
+    <div class="legal">
+      <span>© 2026 Sociedad Transportadora Las Motochivas de Pácora S.A.S. NIT 900.431.116-1. Carrera 1 #6-52, Pácora, Caldas.</span>
+      <span class="hecho">Desarrollada por <img src="img/inplux.png" alt="INPLUX" width="118" height="16" /></span>
+    </div>
+  </div>
 </footer>
+
+<script>
+  // Borde de la barra solo cuando ya se bajó.
+  const barra = document.getElementById('barra');
+  addEventListener('scroll', () => barra.classList.toggle('con-borde', scrollY > 8), { passive: true });
+  // Onda de voz: barras de distinta altura.
+  document.querySelectorAll('.onda').forEach((o) => {
+    o.innerHTML = [38, 70, 104, 62, 88, 120, 74, 46, 92, 58, 34].map((h) => `<i style="height:${h}px"></i>`).join('');
+  });
+</script>
 </body>
 </html>
